@@ -1,5 +1,10 @@
 # gandalf
+
 You shall not redirect
+<p align="center">
+  <img width="460" height="300" src="https://images-na.ssl-images-amazon.com/images/I/61IjX9fG2sL._AC_UY445_.jpg">
+</p>
+
 
 * ## Need to open site in incognito when a html div is present?
 
