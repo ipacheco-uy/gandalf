@@ -2,18 +2,18 @@
   "name": "Gandalf",
   "version": "1.0",
   "description": "You shall not redirect",
-  "manifest_version": 2,
-  "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'",
+  "manifest_version": 3,
   "background": {
-    "scripts": ["app/background.js"]
+    "service_worker": "app/background.js"
   },
   "permissions": [
-    "webRequest",
-    "webRequestBlocking",
-    "tabs",
+    "declarativeNetRequest",
+    "tabs"
+  ],
+  "host_permissions": [
     "<all_urls>"
   ],
-  "browser_action": {
+  "action": {
       "default_title": "You shall not pass",   
       "default_popup": "popup.html"
   },
@@ -28,8 +28,21 @@
       "js": ["app/display.js"]
     },
     {
+      "matches": ["*://*.elpais.com.uy/*"],
+      "js": ["app/display.js"]
+    },
+    {
       "matches": ["<all_urls>"],
       "js": ["app/hidden.js"]
     }
-  ]
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset_1",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  }
 }
